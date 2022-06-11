@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Coupon List</h6>
-      <a href="{{route('coupon.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Coupon</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste coupons</h6>
+      <a href="{{route('coupon.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter copons</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,22 +18,22 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Coupon Code</th>
+              <th>Id</th>
+              <th>Code coupon</th>
               <th>Type</th>
-              <th>Value</th>
+              <th>valeur</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-                <th>S.N.</th>
-                <th>Coupon Code</th>
-                <th>Type</th>
-                <th>Value</th>
-                <th>Status</th>
-                <th>Action</th>
+              <th>Id</th>
+              <th>Code coupon</th>
+              <th>Type</th>
+              <th>valeur</th>
+              <th>Status</th>
+              <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
@@ -43,7 +43,7 @@
                     <td>{{$coupon->code}}</td>
                     <td>
                         @if($coupon->type=='fixed')
-                            <span class="badge badge-primary">{{$coupon->type}}</span>
+                            <span class="badge badge-primary">Fixe</span>
                         @else
                             <span class="badge badge-warning">{{$coupon->type}}</span>
                         @endif
@@ -56,17 +56,17 @@
                         @endif</td>
                     <td>
                         @if($coupon->status=='active')
-                            <span class="badge badge-success">{{$coupon->status}}</span>
+                            <span class="badge badge-success">Actif</span>
                         @else
-                            <span class="badge badge-warning">{{$coupon->status}}</span>
+                            <span class="badge badge-warning">Inactif</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('coupon.edit',$coupon->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('coupon.edit',$coupon->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('coupon.destroy',[$coupon->id])}}">
                           @csrf 
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$coupon->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$coupon->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}
@@ -74,7 +74,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
+                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">supprimer utilisateur</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -83,7 +83,7 @@
                               <form method="post" action="{{ route('banners.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
+                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent supprimer l'utilisateur</button>
                               </form>
                             </div>
                           </div>
@@ -95,7 +95,7 @@
         </table>
         <span style="float:right">{{$coupons->links()}}</span>
         @else
-          <h6 class="text-center">No Coupon found!!! Please create coupon</h6>
+          <h6 class="text-center">Aucun coupon trouvé ! !! Veuillez créer un coupon</h6>
         @endif
       </div>
     </div>
@@ -158,8 +158,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr ?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -168,7 +168,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont protégées !");
                     }
                 });
           })

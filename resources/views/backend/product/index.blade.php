@@ -18,15 +18,15 @@
         <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
-              <th>Size</th>
-              <th>Condition</th>
-              <th>Brand</th>
+              <th>Num</th>
+              <th>Titre</th>
+              <th>Categorie</th>
+              <th>Est en vedette</th>
+              <th>Prix</th>
+              <th>Remise</th>
+              <th>Taille</th>
+              <th>État</th>
+              <th>Marque</th>
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -35,15 +35,15 @@
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
-              <th>Size</th>
-              <th>Condition</th>
-              <th>Brand</th>
+            <th>Num</th>
+              <th>Titre</th>
+              <th>Categorie</th>
+              <th>Est en vedette</th>
+              <th>Prix</th>
+              <th>Remise</th>
+              <th>Taille</th>
+              <th>État</th>
+              <th>Marque</th>
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -92,9 +92,9 @@
                     </td>
                     <td>
                         @if($product->status=='active')
-                            <span class="badge badge-success">{{$product->status}}</span>
+                            <span class="badge badge-success">Actif</span>
                         @else
-                            <span class="badge badge-warning">{{$product->status}}</span>
+                            <span class="badge badge-warning">Inactif</span>
                         @endif
                     </td>
                     <td>
@@ -111,7 +111,7 @@
         </table>
         <span style="float:right">{{$products->links()}}</span>
         @else
-          <h6 class="text-center">No Products found!!! Please create Product</h6>
+          <h6 class="text-center">Aucun produit trouvé !!! Veuillez créer un produit</h6>
         @endif
       </div>
     </div>
@@ -175,8 +175,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -185,7 +185,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

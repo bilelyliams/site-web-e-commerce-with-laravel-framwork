@@ -3,21 +3,21 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Shipping</h5>
+    <h5 class="card-header">Ajout expédition</h5>
     <div class="card-body">
       <form method="post" action="{{route('shipping.store')}}">
         {{csrf_field()}}
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Type <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="type" placeholder="Enter title"  value="{{old('type')}}" class="form-control">
+        <input id="inputTitle" type="text" name="type" placeholder="Entrez le titre"  value="{{old('type')}}" class="form-control">
         @error('type')
         <span class="text-danger">{{$message}}</span>
         @enderror
         </div>
 
         <div class="form-group">
-          <label for="price" class="col-form-label">Price <span class="text-danger">*</span></label>
-        <input id="price" type="number" name="price" placeholder="Enter price"  value="{{old('price')}}" class="form-control">
+          <label for="price" class="col-form-label">Prix <span class="text-danger">*</span></label>
+        <input id="price" type="number" name="price" placeholder="Entrez le prix"  value="{{old('price')}}" class="form-control">
         @error('price')
         <span class="text-danger">{{$message}}</span>
         @enderror
@@ -34,8 +34,8 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">Réinitialiser</button>
+           <button class="btn btn-success" type="submit">Confirmer</button>
         </div>
       </form>
     </div>
@@ -54,7 +54,7 @@
 
     $(document).ready(function() {
     $('#description').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Rédiger une courte description.....",
         tabsize: 2,
         height: 150
     });

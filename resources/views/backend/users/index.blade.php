@@ -17,11 +17,11 @@
         <table class="table table-bordered" id="user-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Name</th>
+              <th>Id</th>
+              <th>Nom</th>
               <th>Email</th>
               <th>Photo</th>
-              <th>Join Date</th>
+              <th>Date d'existance</th>
               <th>Role</th>
               <th>Status</th>
               <th>Action</th>
@@ -29,14 +29,14 @@
           </thead>
           <tfoot>
             <tr>
-                <th>S.N.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Photo</th>
-                <th>Join Date</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Action</th>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Photo</th>
+              <th>Date d'existance</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
@@ -56,17 +56,17 @@
                     <td>{{$user->role}}</td>
                     <td>
                         @if($user->status=='active')
-                            <span class="badge badge-success">{{$user->status}}</span>
+                            <span class="badge badge-success">Actif</span>
                         @else
-                            <span class="badge badge-warning">{{$user->status}}</span>
+                            <span class="badge badge-warning">Inactif</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('users.destroy',[$user->id])}}">
                       @csrf 
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$user->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$user->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}
@@ -74,7 +74,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
+                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">supprimer utilisateur</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -83,7 +83,7 @@
                               <form method="post" action="{{ route('users.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
+                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent supprimer l'utilisateur</button>
                               </form>
                             </div>
                           </div>
@@ -148,8 +148,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr ?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -158,7 +158,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

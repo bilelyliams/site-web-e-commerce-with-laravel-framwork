@@ -1,8 +1,12 @@
 @extends('frontend.layouts.master')
-@section('title','E-SHOP || HOME PAGE')
+@section('title','YOOSHOP || ACCUEIL')
 @section('main-content')
 <!-- Slider Area -->
 @if(count($banners)>0)
+
+
+
+
     <section id="Gslider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach($banners as $key=>$banner)
@@ -16,7 +20,7 @@
                     <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
                     <div class="carousel-caption d-none d-md-block text-left">
                         <h1 class="wow fadeInDown">{{$banner->title}}</h1>
-                        <p>{!! html_entity_decode($banner->description) !!}</p>
+                        <p >{!! html_entity_decode($banner->description) !!}</p>
                         <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
                     </div>
                 </div>
@@ -46,7 +50,7 @@
                 @foreach($category_lists as $cat)
                     @if($cat->is_parent==1)
                         <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-lg-6 col-12">
                             <div class="single-banner">
                                 @if($cat->photo)
                                     <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
@@ -54,8 +58,8 @@
                                     <img src="https://via.placeholder.com/600x370" alt="#">
                                 @endif
                                 <div class="content">
-                                    <h3>{{$cat->title}}</h3>
-                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
+                                    <h3 style="color:white;">{{$cat->title}}</h3>
+                                        <a href="{{route('product-cat',$cat->slug)}}" style="color:white; text-weight: bold;">DÉCOUVREZ MAINTENANT</a>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +78,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Trending Item</h2>
+                        <h2>Article Tendance</h2>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@
                                 @endphp
                                 @if($categories)
                                 <button class="btn" style="background:black"data-filter="*">
-                                    All Products
+                                    TOUS LES PRODUITS
                                 </button>
                                     @foreach($categories as $key=>$cat)
 
@@ -212,7 +216,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>Hot Item</h2>
+                    <h2>Les meilleurs de la semaine </h2>
                 </div>
             </div>
         </div>
@@ -278,7 +282,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
-                            <h1>Latest Items</h1>
+                            <h1>Derniers Articles</h1>
                         </div>
                     </div>
                 </div>
@@ -326,7 +330,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>From Our Blog</h2>
+                    <h2>De Notre Blog</h2>
                 </div>
             </div>
         </div>
@@ -361,8 +365,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-rocket"></i>
-                    <h4>Free shiping</h4>
-                    <p>Orders over $100</p>
+                    <h4>LIVRAISON GRATUITE</h4>
+                    <p>Commandes supérieures à 100 $</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -370,8 +374,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-reload"></i>
-                    <h4>Free Return</h4>
-                    <p>Within 30 days returns</p>
+                    <h4>RETOUR GRATUIT</h4>
+                    <p>Retours sous 30 jours</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -379,8 +383,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-lock"></i>
-                    <h4>Sucure Payment</h4>
-                    <p>100% secure payment</p>
+                    <h4>PAIEMENT SÉCURISÉ</h4>
+                    <p>Paiement 100% sécurisé</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -388,8 +392,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-tag"></i>
-                    <h4>Best Peice</h4>
-                    <p>Guaranteed price</p>
+                    <h4>MEILLEUR PRIX</h4>
+                    <p>Prix ​​garanti</p>
                 </div>
                 <!-- End Single Service -->
             </div>

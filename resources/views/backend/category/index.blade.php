@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste categories</h6>
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter categories</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,11 +18,11 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>Num</th>
+              <th>titre</th>
               <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
+              <th>est Parent</th>
+              <th>categorie parent</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -30,11 +30,11 @@
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+            <th>Num</th>
+              <th>titre</th>
               <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
+              <th>est Parent</th>
+              <th>categorie parent</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -62,9 +62,9 @@
                     </td>
                     <td>
                         @if($category->status=='active')
-                            <span class="badge badge-success">{{$category->status}}</span>
+                            <span class="badge badge-success">actif</span>
                         @else
-                            <span class="badge badge-warning">{{$category->status}}</span>
+                            <span class="badge badge-warning">inactif</span>
                         @endif
                     </td>
                     <td>
@@ -81,7 +81,7 @@
         </table>
         <span style="float:right">{{$categories->links()}}</span>
         @else
-          <h6 class="text-center">No Categories found!!! Please create Category</h6>
+          <h6 class="text-center">Aucune catégorie trouvée !!! Veuillez créer une catégorie</h6>
         @endif
       </div>
     </div>
@@ -137,8 +137,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -147,7 +147,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Order Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Listes de commande</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -17,26 +17,26 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Id</th>
+              <th>Num commande</th>
+              <th>Nom</th>
               <th>Email</th>
-              <th>Quantity</th>
+              <th>Quantité</th>
               <th>Charge</th>
-              <th>Total Amount</th>
+              <th>Montant total</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Order No.</th>
-              <th>Name</th>
+            <th>Id</th>
+              <th>Num commande</th>
+              <th>Nom</th>
               <th>Email</th>
-              <th>Quantity</th>
+              <th>Quantité</th>
               <th>Charge</th>
-              <th>Total Amount</th>
+              <th>Montant total</th>
               <th>Status</th>
               <th>Action</th>
               </tr>
@@ -56,22 +56,22 @@
                     <td>${{number_format($order->total_amount,2)}}</td>
                     <td>
                         @if($order->status=='new')
-                          <span class="badge badge-primary">{{$order->status}}</span>
+                          <span class="badge badge-primary">nouveau</span>
                         @elseif($order->status=='process')
-                          <span class="badge badge-warning">{{$order->status}}</span>
+                          <span class="badge badge-warning">traitement</span>
                         @elseif($order->status=='delivered')
-                          <span class="badge badge-success">{{$order->status}}</span>
+                          <span class="badge badge-success">livré</span>
                         @else
                           <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
-                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="voir" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('order.destroy',[$order->id])}}">
                           @csrf 
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>  
@@ -80,7 +80,7 @@
         </table>
         <span style="float:right">{{$orders->links()}}</span>
         @else
-          <h6 class="text-center">No orders found!!! Please order some products</h6>
+          <h6 class="text-center">Aucune commande trouvée ! !! Veuillez commander des produits</h6>
         @endif
       </div>
     </div>
@@ -136,8 +136,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données.!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -146,7 +146,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

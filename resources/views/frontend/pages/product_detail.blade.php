@@ -24,8 +24,8 @@
 					<div class="col-12">
 						<div class="bread-inner">
 							<ul class="bread-list">
-								<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-								<li class="active"><a href="">Shop Details</a></li>
+								<li><a href="{{route('home')}}">Accueil<i class="ti-arrow-right"></i></a></li>
+								<li class="active"><a href="">detail sur le produits</a></li>
 							</ul>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 																@endif
 															@endfor
 													</ul>
-													<a href="#" class="total-review">({{$product_detail['getReview']->count()}}) Review</a>
+													<a href="#" class="total-review">({{$product_detail['getReview']->count()}}) Avis	</a>
                                                 </div>
                                                 @php 
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
@@ -95,7 +95,7 @@
 											<!--/ End Description -->
 											<!-- Color -->
 											{{-- <div class="color">
-												<h4>Available Options <span>Color</span></h4>
+												<h4>Available Options <span>Couleurs</span></h4>
 												<ul>
 													<li><a href="#" class="one"><i class="ti-check"></i></a></li>
 													<li><a href="#" class="two"><i class="ti-check"></i></a></li>
@@ -107,7 +107,7 @@
 											<!-- Size -->
 											@if($product_detail->size)
 												<div class="size mt-4">
-													<h4>Size</h4>
+													<h4>Taille</h4>
 													<ul>
 														@php 
 															$sizes=explode(',',$product_detail->size);
@@ -125,7 +125,7 @@
 												<form action="{{route('single-add-to-cart')}}" method="POST">
 													@csrf 
 													<div class="quantity">
-														<h6>Quantity :</h6>
+														<h6>Quantité :</h6>
 														<!-- Input Order -->
 														<div class="input-group">
 															<div class="button minus">
@@ -144,14 +144,14 @@
 													<!--/ End Input Order -->
 													</div>
 													<div class="add-to-cart mt-4">
-														<button type="submit" class="btn">Add to cart</button>
+														<button type="submit" class="btn">Ajouter au panier</button>
 														<a href="{{route('add-to-wishlist',$product_detail->slug)}}" class="btn min"><i class="ti-heart"></i></a>
 													</div>
 												</form>
 
-												<p class="cat">Category :<a href="{{route('product-cat',$product_detail->cat_info['slug'])}}">{{$product_detail->cat_info['title']}}</a></p>
+												<p class="cat">categorie :<a href="{{route('product-cat',$product_detail->cat_info['slug'])}}">{{$product_detail->cat_info['title']}}</a></p>
 												@if($product_detail->sub_cat_info)
-												<p class="cat mt-1">Sub Category :<a href="{{route('product-sub-cat',[$product_detail->cat_info['slug'],$product_detail->sub_cat_info['slug']])}}">{{$product_detail->sub_cat_info['title']}}</a></p>
+												<p class="cat mt-1">Sous Categorie :<a href="{{route('product-sub-cat',[$product_detail->cat_info['slug'],$product_detail->sub_cat_info['slug']])}}">{{$product_detail->sub_cat_info['title']}}</a></p>
 												@endif
 												<p class="availability">Stock : @if($product_detail->stock>0)<span class="badge badge-success">{{$product_detail->stock}}</span>@else <span class="badge badge-danger">{{$product_detail->stock}}</span>  @endif</p>
 											</div>
@@ -166,7 +166,7 @@
 												<!-- Tab Nav -->
 												<ul class="nav nav-tabs" id="myTab" role="tablist">
 													<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a></li>
-													<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews</a></li>
+													<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Avis</a></li>
 												</ul>
 												<!--/ End Tab Nav -->
 											</div>
@@ -193,10 +193,10 @@
 																<!-- Review -->
 																<div class="comment-review">
 																	<div class="add-review">
-																		<h5>Add A Review</h5>
-																		<p>Your email address will not be published. Required fields are marked</p>
+																		<h5>Ajouter un avis</h5>
+																		<p>Votre adresse email ne sera pas publiée. les champs requis sont indiqués</p>
 																	</div>
-																	<h4>Your Rating <span class="text-danger">*</span></h4>
+																	<h4>Votre note <span class="text-danger">*</span></h4>
 																	<div class="review-inner">
 																			<!-- Form -->
 																@auth
@@ -226,20 +226,20 @@
                                                                         </div>
 																		<div class="col-lg-12 col-12">
 																			<div class="form-group">
-																				<label>Write a review</label>
+																				<label>Écrire une critique</label>
 																				<textarea name="review" rows="6" placeholder="" ></textarea>
 																			</div>
 																		</div>
 																		<div class="col-lg-12 col-12">
 																			<div class="form-group button5">	
-																				<button type="submit" class="btn">Submit</button>
+																				<button type="submit" class="btn">Soumettre</button>
 																			</div>
 																		</div>
 																	</div>
 																</form>
 																@else 
 																<p class="text-center p-5">
-																	You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Login</a> OR <a style="color:blue" href="{{route('register.form')}}">Register</a>
+																	You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Se connecter</a> OR <a style="color:blue" href="{{route('register.form')}}">S'inscrire</a>
 
 																</p>
 																<!--/ End Form -->
@@ -255,8 +255,8 @@
 																				$rate +=$rate
 																			}
 																		@endphp --}}
-																		<h4>{{ceil($product_detail->getReview->avg('rate'))}} <span>(Overall)</span></h4>
-																		<span>Based on {{$product_detail->getReview->count()}} Comments</span>
+																		<h4>{{ceil($product_detail->getReview->avg('rate'))}} <span>(global)</span></h4>
+																		<span>Basé sur {{$product_detail->getReview->count()}} commentaires	</span>
 																	</div>
 																	@foreach($product_detail['getReview'] as $data)
 																	<!-- Single Rating -->
@@ -313,7 +313,7 @@
             <div class="row">
 				<div class="col-12">
 					<div class="section-title">
-						<h2>Related Products</h2>
+						<h2>produit associé</h2>
 					</div>
 				</div>
             </div>
@@ -333,18 +333,18 @@
                                             <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                             <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
 											@if($data->discount != 0)
-                                            <span class="price-dec">{{$data->discount}} % Off</span>
+                                            <span class="price-dec">{{$data->discount}} % Remise 	 	</span>
 											@endif
-                                                                    {{-- <span class="out-of-stock">Hot</span> --}}
+                                                                    {{-- <span class="out-of-stock">chaud</span> --}}
                                         </a>
                                         <div class="button-head">
                                             <div class="product-action">
-                                                <a data-toggle="modal" data-target="#modelExample" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                                                <a data-toggle="modal" data-target="#modelExample" title="Quick View" href="#"><i class=" ti-eye"></i><span>rapide</span></a>
+                                                <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Ajouter à la liste de souhaits</span></a>
+                                                <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Ajouter au comparateur</span></a>
                                             </div>
                                             <div class="product-action-2">
-                                                <a title="Add to cart" href="#">Add to cart</a>
+                                                <a title="Add to cart" href="#">Ajouter au panier</a>
                                             </div>
                                         </div>
                                     </div>

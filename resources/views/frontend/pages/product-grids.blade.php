@@ -10,8 +10,8 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="blog-single.html">Shop Grid</a></li>
+                            <li><a href="index1.html">accueil<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="blog-single.html">Tous les produits</a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <!--/ End Single Widget -->
                                 <!-- Shop By Price -->
                                     <div class="single-widget range">
-                                        <h3 class="title">Shop by Price</h3>
+                                        <h3 class="title">Par Prix</h3>
                                         <div class="price-filter">
                                             <div class="price-filter-inner">
                                                 @php
@@ -74,7 +74,7 @@
                                                 <div class="product_filter">
                                                 <button type="submit" class="filter_button">Filter</button>
                                                 <div class="label-input">
-                                                    <span>Range:</span>
+                                                    <span>Entre:</span>
                                                     <input style="" type="text" id="amount" readonly/>
                                                     <input type="hidden" name="price_range" id="price_range" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif"/>
                                                 </div>
@@ -86,7 +86,7 @@
                                     <!--/ End Shop By Price -->
                                 <!-- Single Widget -->
                                 <div class="single-widget recent-post">
-                                    <h3 class="title">Recent post</h3>
+                                    <h3 class="title">Post Récent</h3>
                                     {{-- {{dd($recent_products)}} --}}
                                     @foreach($recent_products as $product)
                                         <!-- Single Post -->
@@ -112,7 +112,7 @@
                                 <!--/ End Single Widget -->
                                 <!-- Single Widget -->
                                 <div class="single-widget category">
-                                    <h3 class="title">Brands</h3>
+                                    <h3 class="title">Marques</h3>
                                     <ul class="categor-list">
                                         @php
                                             $brands=DB::table('brands')->orderBy('title','ASC')->where('status','active')->get();
@@ -132,9 +132,9 @@
                                 <div class="shop-top">
                                     <div class="shop-shorter">
                                         <div class="single-shorter">
-                                            <label>Show :</label>
+                                            <label>Affiche :</label>
                                             <select class="show" name="show" onchange="this.form.submit();">
-                                                <option value="">Default</option>
+                                                <option value="">par défaut</option>
                                                 <option value="9" @if(!empty($_GET['show']) && $_GET['show']=='9') selected @endif>09</option>
                                                 <option value="15" @if(!empty($_GET['show']) && $_GET['show']=='15') selected @endif>15</option>
                                                 <option value="21" @if(!empty($_GET['show']) && $_GET['show']=='21') selected @endif>21</option>
@@ -142,13 +142,13 @@
                                             </select>
                                         </div>
                                         <div class="single-shorter">
-                                            <label>Sort By :</label>
+                                            <label>Trier par</label>
                                             <select class='sortBy' name='sortBy' onchange="this.form.submit();">
-                                                <option value="">Default</option>
-                                                <option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>Name</option>
-                                                <option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Price</option>
-                                                <option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Category</option>
-                                                <option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Brand</option>
+                                                <option value="">Par défaut</option>
+                                                <option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>Nom</option>
+                                                <option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Prix</option>
+                                                <option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Categories</option>
+                                                <option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Marque</option>
                                             </select>
                                         </div>
                                     </div>
@@ -174,16 +174,16 @@
                                                     <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                                     <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                                     @if($product->discount)
-                                                                <span class="price-dec">{{$product->discount}} % Off</span>
+                                                                <span class="price-dec">{{$product->discount}} % Remise </span>
                                                     @endif
                                                 </a>
                                                 <div class="button-head">
                                                     <div class="product-action">
-                                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>voir</span></a>
+                                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}"><i class=" ti-heart "></i><span>Ajouter a la liste de souhaits</span></a>
                                                     </div>
                                                     <div class="product-action-2">
-                                                        <a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
+                                                        <a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">Ajouter au panier</a>
                                                     </div>
                                                 </div>
                                             </div>

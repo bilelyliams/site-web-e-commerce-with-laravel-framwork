@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Shipping List</h6>
-      <a href="{{route('shipping.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Shipping</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste d'expédition</h6>
+      <a href="{{route('shipping.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter expédition</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,18 +18,18 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Price</th>
+              <th>Num</th>
+              <th>Titre</th>
+              <th>Prix</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Price</th>
+              <th>Num</th>
+              <th>Titre</th>
+              <th>Prix</th>
               <th>Status</th>
               <th>Action</th>
               </tr>
@@ -42,17 +42,17 @@
                     <td>${{$shipping->price}}</td>
                     <td>
                         @if($shipping->status=='active')
-                            <span class="badge badge-success">{{$shipping->status}}</span>
+                            <span class="badge badge-success">Actif</span>
                         @else
-                            <span class="badge badge-warning">{{$shipping->status}}</span>
+                            <span class="badge badge-warning">Inacti</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('shipping.edit',$shipping->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('shipping.edit',$shipping->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('shipping.destroy',[$shipping->id])}}">
                           @csrf 
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$shipping->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$shipping->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}
@@ -60,7 +60,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
+                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Supprimer l'utilisateur</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -69,7 +69,7 @@
                               <form method="post" action="{{ route('banners.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
+                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent supprimer l'utilisateur</button>
                               </form>
                             </div>
                           </div>
@@ -144,8 +144,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr ?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -154,7 +154,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

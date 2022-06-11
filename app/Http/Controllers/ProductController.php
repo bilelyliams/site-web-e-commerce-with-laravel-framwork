@@ -81,10 +81,10 @@ class ProductController extends Controller
         // return $data;
         $status=Product::create($data);
         if($status){
-            request()->session()->flash('success','Product Successfully added');
+            request()->session()->flash('success','Produit ajouté avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Veuillez réessayer !!');
         }
         return redirect()->route('product.index');
 
@@ -158,10 +158,10 @@ class ProductController extends Controller
         // return $data;
         $status=$product->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Product Successfully updated');
+            request()->session()->flash('success','Produit mis à jour avec succès');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Veuillez réessayer !');
         }
         return redirect()->route('product.index');
     }
@@ -178,10 +178,10 @@ class ProductController extends Controller
         $status=$product->delete();
         
         if($status){
-            request()->session()->flash('success','Product successfully deleted');
+            request()->session()->flash('success','Produit supprimé avec succès');
         }
         else{
-            request()->session()->flash('error','Error while deleting product');
+            request()->session()->flash('error',"Erreur lors de la suppression d'un produit");
         }
         return redirect()->route('product.index');
     }

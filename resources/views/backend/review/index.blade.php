@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Review Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Listes des Avis</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -17,24 +17,24 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
-              <th>Rate</th>
-              <th>Date</th>
+              <th>Id</th>
+              <th>Avis de</th>
+              <th>Nom produit</th>
+              <th>Avis</th>
+              <th>Etoiles</th>
+              <th>date</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Review By</th>
-              <th>Product Title</th>
-              <th>Review</th>
-              <th>Rate</th>
-              <th>Date</th>
+              <th>Id</th>
+              <th>Avis de</th>
+              <th>Nom produit</th>
+              <th>Avis</th>
+              <th>Etoiles</th>
+              <th>date</th>
               <th>Status</th>
               <th>Action</th>
               </tr>
@@ -44,7 +44,7 @@
                 <tr>
                     <td>{{$review->id}}</td>
                     <td>{{$review->user_info['name']}}</td>
-                    <td>{{$review->product->id}}</td>
+                    <td>{{$review->product_id}}</td>
                     <td>{{$review->review}}</td>
                     <td>
                      <ul style="list-style:none">
@@ -57,20 +57,20 @@
                         @endfor
                      </ul>
                     </td>
-                    <td>{{$review->created_at->format('M d D, Y g: i a')}}</td>
+                    <td>{{$review->created_at->format('d/g/Y : i a')}}</td>
                     <td>
                         @if($review->status=='active')
-                          <span class="badge badge-success">{{$review->status}}</span>
+                          <span class="badge badge-success">Actif</span>
                         @else
-                          <span class="badge badge-warning">{{$review->status}}</span>
+                          <span class="badge badge-warning">Inactif</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('review.edit',$review->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('review.edit',$review->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('review.destroy',[$review->id])}}">
                           @csrf
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$review->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$review->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -79,7 +79,7 @@
         </table>
         <span style="float:right">{{$reviews->links()}}</span>
         @else
-          <h6 class="text-center">No reviews found!!!</h6>
+          <h6 class="text-center">Aucun avis trouvé ! !!</h6>
         @endif
       </div>
     </div>
@@ -135,8 +135,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Vous êtes sûr?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -145,7 +145,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité !");
                     }
                 });
           })

@@ -3,12 +3,12 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Brand</h5>
+    <h5 class="card-header">Ajouter Marque</h5>
     <div class="card-body">
       <form method="post" action="{{route('brand.store')}}">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
         <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
         @error('title')
         <span class="text-danger">{{$message}}</span>
@@ -26,8 +26,8 @@
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">Réinitialiser</button>
+           <button class="btn btn-success" type="submit">Confirmer</button>
         </div>
       </form>
     </div>
@@ -46,7 +46,7 @@
 
     $(document).ready(function() {
     $('#description').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Rédiger une courte description.....",
         tabsize: 2,
         height: 150
     });

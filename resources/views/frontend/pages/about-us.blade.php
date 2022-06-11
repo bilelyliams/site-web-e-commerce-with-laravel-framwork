@@ -30,11 +30,11 @@
 							@php
 								$settings=DB::table('settings')->get();
 							@endphp
-							<h3>Welcome To <span>Eshop</span></h3>
+							<h3>Bienvenue à <span>YOOSHOP</span></h3>
 							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
 							<div class="button">
-								<a href="{{route('blog')}}" class="btn">Our Blog</a>
-								<a href="{{route('contact')}}" class="btn primary">Contact Us</a>
+								<a href="{{route('blog')}}" class="btn">Notre Blog</a>
+								<a href="{{route('contact')}}" class="btn primary">Nous contacter</a>
 							</div>
 						</div>
 					</div>
@@ -60,8 +60,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
+						<h4>LIVRAISON GRATUITE</h4>
+						<p>Commandes supérieures à 100 $</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -69,8 +69,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
+						<h4>RETOUR GRATUIT</h4>
+						<p>Retours sous 30 jours</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -78,8 +78,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
+						<h4>PAIEMENT SÉCURISÉ</h4>
+						<p>Paiement 100% sécurisé</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -87,8 +87,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
+						<h4>MEILLEUR PRIX</h4>
+						<p>Prix ​​garanti</p>
 					</div>
 					<!-- End Single Service -->
 				</div>

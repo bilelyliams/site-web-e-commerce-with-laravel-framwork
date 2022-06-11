@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Post Tag Lists</h6>
-      <a href="{{route('post-tag.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Tag</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des tags</h6>
+      <a href="{{route('post-tag.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ajouter un tag</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,8 +18,8 @@
         <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>Id</th>
+              <th>Titre</th>
               <th>Slug</th>
               <th>Status</th>
               <th>Action</th>
@@ -27,8 +27,8 @@
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>Id</th>
+              <th>Titre</th>
               <th>Slug</th>
               <th>Status</th>
               <th>Action</th>
@@ -42,17 +42,17 @@
                     <td>{{$data->slug}}</td>
                     <td>
                         @if($data->status=='active')
-                            <span class="badge badge-success">{{$data->status}}</span>
+                            <span class="badge badge-success">Actif</span>
                         @else
-                            <span class="badge badge-warning">{{$data->status}}</span>
+                            <span class="badge badge-warning">Inactif</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('post-tag.edit',$data->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('post-tag.edit',$data->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="modifier" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('post-tag.destroy',[$data->id])}}">
                       @csrf 
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>  
@@ -61,7 +61,7 @@
         </table>
         <span style="float:right">{{$postTags->links()}}</span>
         @else
-          <h6 class="text-center">No Post Tag found!!! Please create post tag</h6>
+          <h6 class="text-center">Aucun tag de poste trouvé ! !! Veuillez créer un post tag</h6>
         @endif
       </div>
     </div>
@@ -117,8 +117,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                title: "Vous êtes sûr ?",
+                    text: "Une fois supprimées, vous ne pourrez pas récupérer ces données !",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -127,7 +127,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Vos données sont en sécurité!");
                     }
                 });
           })

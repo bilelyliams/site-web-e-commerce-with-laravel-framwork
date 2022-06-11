@@ -15,7 +15,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="{{route('admin')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Tablaux de bord</span></a>
     </li>
 
     <!-- Divider -->
@@ -23,7 +23,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Banner
+    Bannière
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -31,19 +31,19 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('file-manager')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Media Manager</span></a>
+            <span>Gestionnaire de médias</span></a>
     </li>
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-image"></i>
-        <span>Banners</span>
+        <span>Bannière</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Banner Options:</h6>
-          <a class="collapse-item" href="{{route('banner.index')}}">Banners</a>
-          <a class="collapse-item" href="{{route('banner.create')}}">Add Banners</a>
+          <h6 class="collapse-header">Options Bannière:</h6>
+          <a class="collapse-item" href="{{route('banner.index')}}">Bannière</a>
+          <a class="collapse-item" href="{{route('banner.create')}}">Ajouter Bannière</a>
         </div>
       </div>
     </li>
@@ -51,20 +51,20 @@
     <hr class="sidebar-divider">
         <!-- Heading -->
         <div class="sidebar-heading">
-            Shop
+            Magasin
         </div>
 
     <!-- Categories -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse">
           <i class="fas fa-sitemap"></i>
-          <span>Category</span>
+          <span>Categories</span>
         </a>
         <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('category.create')}}">Add Category</a>
+            <h6 class="collapse-header">Options categories:</h6>
+            <a class="collapse-item" href="{{route('category.index')}}">Categories</a>
+            <a class="collapse-item" href="{{route('category.create')}}">Ajouter categories</a>
           </div>
         </div>
     </li>
@@ -72,13 +72,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse" aria-expanded="true" aria-controls="productCollapse">
           <i class="fas fa-cubes"></i>
-          <span>Products</span>
+          <span>Produits</span>
         </a>
         <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Product Options:</h6>
-            <a class="collapse-item" href="{{route('product.index')}}">Products</a>
-            <a class="collapse-item" href="{{route('product.create')}}">Add Product</a>
+            <h6 class="collapse-header">Options produits:</h6>
+            <a class="collapse-item" href="{{route('product.index')}}">Produits</a>
+            <a class="collapse-item" href="{{route('product.create')}}">Ajouter Produits</a>
           </div>
         </div>
     </li>
@@ -87,13 +87,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true" aria-controls="brandCollapse">
           <i class="fas fa-table"></i>
-          <span>Brands</span>
+          <span>Marques</span>
         </a>
         <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Brand Options:</h6>
-            <a class="collapse-item" href="{{route('brand.index')}}">Brands</a>
-            <a class="collapse-item" href="{{route('brand.create')}}">Add Brand</a>
+            <a class="collapse-item" href="{{route('brand.index')}}">Marques</a>
+            <a class="collapse-item" href="{{route('brand.create')}}">Ajouter Marques</a>
           </div>
         </div>
     </li>
@@ -102,13 +102,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse" aria-expanded="true" aria-controls="shippingCollapse">
           <i class="fas fa-truck"></i>
-          <span>Shipping</span>
+          <span>livraison</span>
         </a>
         <div id="shippingCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Shipping Options:</h6>
-            <a class="collapse-item" href="{{route('shipping.index')}}">Shipping</a>
-            <a class="collapse-item" href="{{route('shipping.create')}}">Add Shipping</a>
+            <a class="collapse-item" href="{{route('shipping.index')}}">livraison</a>
+            <a class="collapse-item" href="{{route('shipping.create')}}">Ajouter livraison</a>
           </div>
         </div>
     </li>
@@ -117,7 +117,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('order.index')}}">
             <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
+            <span>Commandes</span>
         </a>
     </li>
 
@@ -125,7 +125,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('review.index')}}">
             <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
+            <span>Avis</span></a>
     </li>
     
 
@@ -134,20 +134,20 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Posts
+      Articles
     </div>
 
     <!-- Posts -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
         <i class="fas fa-fw fa-folder"></i>
-        <span>Posts</span>
+        <span>Articles</span>
       </a>
       <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Post Options:</h6>
-          <a class="collapse-item" href="{{route('post.index')}}">Posts</a>
-          <a class="collapse-item" href="{{route('post.create')}}">Add Post</a>
+          <h6 class="collapse-header">Options Articles:</h6>
+          <a class="collapse-item" href="{{route('post.index')}}">Articles</a>
+          <a class="collapse-item" href="{{route('post.create')}}">Ajouter Articles</a>
         </div>
       </div>
     </li>
@@ -156,13 +156,13 @@
      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse" aria-expanded="true" aria-controls="postCategoryCollapse">
           <i class="fas fa-sitemap fa-folder"></i>
-          <span>Category</span>
+          <span>Categories</span>
         </a>
         <div id="postCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('post-category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('post-category.create')}}">Add Category</a>
+            <h6 class="collapse-header">Options Categories:</h6>
+            <a class="collapse-item" href="{{route('post-category.index')}}">Categories</a>
+            <a class="collapse-item" href="{{route('post-category.create')}}">Ajouter Categories</a>
           </div>
         </div>
       </li>
@@ -175,9 +175,9 @@
         </a>
         <div id="tagCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Tag Options:</h6>
+            <h6 class="collapse-header">Options Tags:</h6>
             <a class="collapse-item" href="{{route('post-tag.index')}}">Tag</a>
-            <a class="collapse-item" href="{{route('post-tag.create')}}">Add Tag</a>
+            <a class="collapse-item" href="{{route('post-tag.create')}}">Ajouter Tag</a>
             </div>
         </div>
     </li>
@@ -186,7 +186,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('comment.index')}}">
             <i class="fas fa-comments fa-chart-area"></i>
-            <span>Comments</span>
+            <span>Commentaires</span>
         </a>
       </li>
 
@@ -195,7 +195,7 @@
     <hr class="sidebar-divider d-none d-md-block">
      <!-- Heading -->
     <div class="sidebar-heading">
-        General Settings
+        paramètres Général
     </div>
     <li class="nav-item">
       <a class="nav-link" href="{{route('coupon.index')}}">
@@ -206,13 +206,13 @@
      <li class="nav-item">
         <a class="nav-link" href="{{route('users.index')}}">
             <i class="fas fa-users"></i>
-            <span>Users</span></a>
+            <span>Utilisateur</span></a>
     </li>
      <!-- General settings -->
      <li class="nav-item">
         <a class="nav-link" href="{{route('settings')}}">
             <i class="fas fa-cog"></i>
-            <span>Settings</span></a>
+            <span>Parametres</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->

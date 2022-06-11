@@ -3,12 +3,12 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Category</h5>
+    <h5 class="card-header">Ajouter categorie</h5>
     <div class="card-body">
       <form method="post" action="{{route('category.store')}}">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-          <label for="summary" class="col-form-label">Summary</label>
+          <label for="summary" class="col-form-label">Description</label>
           <textarea class="form-control" id="summary" name="summary">{{old('summary')}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
@@ -24,13 +24,13 @@
         </div>
 
         <div class="form-group">
-          <label for="is_parent">Is Parent</label><br>
-          <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Yes                        
+          <label for="is_parent">est Parent</label><br>
+          <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Oui                        
         </div>
         {{-- {{$parent_cats}} --}}
 
         <div class="form-group d-none" id='parent_cat_div'>
-          <label for="parent_id">Parent Category</label>
+          <label for="parent_id">Catégorie de parent</label>
           <select name="parent_id" class="form-control">
               <option value="">--Select any category--</option>
               @foreach($parent_cats as $key=>$parent_cat)
@@ -44,7 +44,7 @@
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
+                  <i class="fa fa-picture-o"></i> Choisir
                   </a>
               </span>
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
@@ -59,16 +59,16 @@
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="active">Actif</option>
+              <option value="inactive">Inactif</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">Réinitialiser</button>
+           <button class="btn btn-success" type="submit">Confirmer</button>
         </div>
       </form>
     </div>
